@@ -195,7 +195,7 @@ class Mathemon extends Program{
             joueur.vie-=ennemie.force;
             println("\n"+"vous avez été touché");
         }else{
-            println("\n"+"Il vous à rater");
+            println("\n"+"Il vous a raté");
         }
         println("\n"+"il vous reste "+joueur.vie+" points de vie");
     }
