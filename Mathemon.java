@@ -171,6 +171,7 @@ class Mathemon extends Program{
             tourJoueur(joueur,ennemie);
             if(ennemie.vie<=0){
                 gagner=true;
+                joueur.vie = joueur.vie + 10;
                 gagnerExp(joueur, ennemie);
                 fini=true;
             }else{
@@ -273,8 +274,10 @@ class Mathemon extends Program{
         while (joueur.experience >= expRequis(joueur)){
             joueur.experience = joueur.experience - expRequis(joueur);
             joueur.niveau = joueur.niveau + 1;
-            outilsDebloquer(joueur);
+            joueur.vie_max = (int) (joueur.vie_max * 1.2);
+            joueur.vie = joueur.vie_max;
             lieuDebloquer(joueur);
+            outilsDebloquer(joueur);
         }
         return joueur;
     }
