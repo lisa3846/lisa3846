@@ -141,19 +141,20 @@ class Mathemon extends Program{
     int afficherMap(Lieux lieu){
         println("\n"+"0. Retour"+"\n");
         int choix;
-        for(int i=1;i<8;i++){
+        for(int i=1;i<=length(lieu.listeLieux);i++){
             if(lieu.listeLieux[i-1].visiter){
                 println(i+". "+lieu.listeLieux[i-1].nom);
             }else{
                 println(i+". ?????????");
             }
         }
-        do{
+        choix=readInt();
+        while(choix>length(lieu.listeLieux) || choix<0 || (choix!=0 && !lieu.listeLieux[choix-1].visiter)){
+            println("\n"+"Veuillez choisir un lieu déjà débloqué et qui existe");
             choix=readInt();
-        }while(choix>8 || choix<0);
+        }
         return choix;
     }
-
     void afficherScene(Ennemie ennemie){
         println("\n"+"Vous aller affronter un "+ennemie.nom+"\n"+"Il lui reste "+ennemie.vie+" points de vie"+"\n");
     }
